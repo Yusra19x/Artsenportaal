@@ -1,0 +1,125 @@
+LabResultID,LabResultGroupID,PatientID,ResultName,Unit
+801d00a5-c3fa-45b1-8fb5-e79a75ae16cd,79ff3002-7a60-4e4f-8412-63a8ead2cdbc,ba7bebec-60b6-444a-a068-258aa7fa2a78,Studie,
+7d726f2e-b410-4fd2-86c0-c5b5c5f4f237,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Natrium,mmol/L
+e17676cc-975b-447c-9ef2-34f1d4bf33bd,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Calcium,mmol/L
+1bc1ea7c-5ffd-4fa8-a9fd-0bcedf9c161f,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Magnesium,mmol/L
+b19548e4-d066-4e55-9b72-21a82ac4c1cc,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Fosfaat,mmol/L
+ff628524-68f4-4aca-991b-82bf80426584,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Ureum,mmol/L
+1c051c4d-aa1b-44be-8e97-6ad6b9000039,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Creatinine,Âµmol/L
+df58a5b0-07ec-4591-993f-78ca72d995a6,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Gamma-GT,U/L
+16256b5b-e88d-4542-80dd-8461a87822fa,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,ASAT,U/L
+9a1ad849-9927-4c06-93da-03ff60ff759f,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,ALAT,U/L
+7a81313d-9e1f-43eb-8871-a6d69f7b276c,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,LD,U/L
+4ff84a28-c63b-4237-8fd3-7864b96b110a,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,CK,U/L
+9fac7f00-0dab-4431-98fd-76ac7dffb6c6,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,Albumine,g/L
+664beac7-48c7-452c-bc84-bf4135bf6197,f159db9c-75b6-4d17-804b-62c45e7914f6,ba7bebec-60b6-444a-a068-258aa7fa2a78,CRP,mg/L
+1bb51d8a-4e43-495f-9831-42a98cd6fb3e,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Hemoglobine,mmol/L
+d537d79b-cb47-4b0b-8270-23a8673f60f3,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Hematocriet,L/L
+915dd560-a6c6-4b1d-87df-b2ed04950ff5,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Erytrocyten,x10^12/L
+de3c6e80-989a-4151-b9f0-5741fe236c30,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,MCV,fL
+3dc9b821-2f68-4805-9f3d-a9bdac9296e5,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,MCH,fmol
+3e39e865-1ce6-4b98-972b-f063f235275d,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,MCHC,mmol/L
+18be09d8-d0a8-4c7d-8b80-0d3dfa765f28,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Trombocyten,x10^9/L
+bb4d57aa-bff4-4596-a189-26643eee2dd8,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Leukocyten,x10^9/L
+6d880be8-3db8-43af-a440-3d9e915e991e,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Eosinofiele granulocyten,x10^9/L
+41a6d6ec-dd56-4bba-8327-748629586bd6,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Basofiele granulocyten,x10^9/L
+b8fb5bf0-cb5f-4285-84d3-105814dec140,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Neutrofielen,x10^9/L
+91936430-dfe4-466d-b1e6-ae64293cfdf1,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Lymfocyten,x10^9/L
+47176d36-e008-457e-b86c-dc2e93d6e25f,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Monocyten,x10^9/L
+95867ce6-63af-44ed-a12f-4a600c69fcd1,00b0a460-ea8a-4902-a1d7-fa62089521d2,ba7bebec-60b6-444a-a068-258aa7fa2a78,Bezinking (BSE),mm/u
+b01cbee8-b8fd-4e7a-822d-1dd4ad0cc905,9c6e1061-136e-4ffd-9f0b-cbeefb425373,ba7bebec-60b6-444a-a068-258aa7fa2a78,ANA (verd.: 1/100),
+3719cbc4-7b23-43d3-b6e8-26ae557fa94e,9c6e1061-136e-4ffd-9f0b-cbeefb425373,ba7bebec-60b6-444a-a068-258aa7fa2a78,Lineblot_Pos,
+d3e9cc26-51a0-411d-9d0d-8b5852cdc466,9c6e1061-136e-4ffd-9f0b-cbeefb425373,ba7bebec-60b6-444a-a068-258aa7fa2a78,Lineblot_Neg,
+264ae855-4513-4b87-b8ae-c08ad5ad3d6a,26e93281-12d7-4de4-abff-b2aa051d10d6,ba7bebec-60b6-444a-a068-258aa7fa2a78,25-OH-Vitamine D,nmol/L
+20a9af53-c0ad-4c6b-8ca4-7b8e7b78d62e,4a0ae414-8f8b-4b11-bee3-2efcf49eea22,ba7bebec-60b6-444a-a068-258aa7fa2a78,Galectin-9,pg/ml
+91def01f-d426-49e2-8ca6-9da268be8f93,4a0ae414-8f8b-4b11-bee3-2efcf49eea22,ba7bebec-60b6-444a-a068-258aa7fa2a78,CXCL10,pg/ml
+9c56ab4b-d0fd-4586-ad42-7d2b8b078789,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,T-cellen relatief,% binnen Ly
+4e17886e-28fe-4bbc-9d6c-a8711c4dce00,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,T-cellen absoluut,per ÂµL
+7481b459-c6a7-4596-85eb-92801ebfc9ae,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD4 relatief,% binnen Ly
+1b79ba82-3481-418e-91e5-acfdf8293320,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD4 absoluut,per ÂµL
+b264e502-105c-4b6f-b37e-30bbb361b4f0,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD8 relatief,% binnen Ly
+44d940fa-1a78-45da-847d-aa66558def74,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD8 absoluut,per ÂµL
+b58c48d5-0b1f-4d24-8eb2-7b0007046a85,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD4/CD8-ratio,
+348ddc35-f6fa-4323-b47f-7854c48c612e,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,B-cellen relatief,% binnen Ly
+c997f844-2380-49b3-8a59-d37301d165e0,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,B-cellen absoluut,per ÂµL
+87e4d540-6380-4f8d-94e0-57a789ffd552,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,NK-cellen relatief,% binnen Ly
+e2f90778-c98f-4bc0-a06d-194e33bf8dba,6807b38a-a98a-4ee5-a4b4-83b3e5cd7d39,ba7bebec-60b6-444a-a068-258aa7fa2a78,NK-cellen absoluut,per ÂµL
+a7d23dbc-495f-4693-b932-ae004ee8620d,de1bb1e9-9b2c-401b-98a6-3eeef5790349,ba7bebec-60b6-444a-a068-258aa7fa2a78,Materiaal,
+f5fbdeb5-bf4c-4d91-ae64-56faf623bbaa,39af808c-a5ed-46cb-a0c0-1225f247948b,ba7bebec-60b6-444a-a068-258aa7fa2a78,SARS-CoV-2 IgG kwantitatief (CMIA),AU/mL
+4051fbe6-e4f1-496b-af8f-00e5866efd57,67195480-2204-49c1-ad6c-dc130b88fccf,ba7bebec-60b6-444a-a068-258aa7fa2a78,Opslag spijtmateriaal,
+bce7d973-64dd-4e40-9bd3-0f1878f0ab3e,1937611a-13d9-41da-afb5-666b292a6199,ba7bebec-60b6-444a-a068-258aa7fa2a78,Itraconazol (DS),
+a52c92be-acdc-45ef-9f29-91b7d5a0f303,1937611a-13d9-41da-afb5-666b292a6199,ba7bebec-60b6-444a-a068-258aa7fa2a78,Hydroxyitraconazol,mg/L
+a449da25-d802-40ce-94a4-61ae35fb2475,1937611a-13d9-41da-afb5-666b292a6199,ba7bebec-60b6-444a-a068-258aa7fa2a78,Itraconazol,mg/L
+e19cb413-dd3f-4227-a2c3-bec4f95f7f96,5a2d2ed2-4740-45b6-ad02-807a1c4037ff,ba7bebec-60b6-444a-a068-258aa7fa2a78,SARS-CoV-2 RNA (GENX),
+252f458f-9ae1-4b96-9158-c21fa2e60d88,5a2d2ed2-4740-45b6-ad02-807a1c4037ff,ba7bebec-60b6-444a-a068-258aa7fa2a78,IL-18,pg/ml
+78211f09-e720-4089-88d6-28a125c172ec,093dda30-15d2-418e-976a-5f53af36f72a,ba7bebec-60b6-444a-a068-258aa7fa2a78,Glucose,mmol/L
+18a67d83-75b7-4d97-9cf3-891d1d990b46,093dda30-15d2-418e-976a-5f53af36f72a,ba7bebec-60b6-444a-a068-258aa7fa2a78,Mycofenolaat,mg/L
+4a72d4cb-7eae-414b-8c69-b5567780c810,093dda30-15d2-418e-976a-5f53af36f72a,ba7bebec-60b6-444a-a068-258aa7fa2a78,Mycofenolzuur (DS),
+663edf20-fba1-4832-8543-4393edb8a877,ace460bd-1e8a-4839-a35b-a04acefeb0d7,ba7bebec-60b6-444a-a068-258aa7fa2a78,Schildklier (anti-TPO),U/mL
+c7356ef2-cabd-4d10-9e29-5e48f51cca0e,ace460bd-1e8a-4839-a35b-a04acefeb0d7,ba7bebec-60b6-444a-a068-258aa7fa2a78,Adenovirus DNA (QPCR),KopieÃ«n/mL
+eb96b6db-f867-4b51-9372-6895dc5ea8e9,ace460bd-1e8a-4839-a35b-a04acefeb0d7,ba7bebec-60b6-444a-a068-258aa7fa2a78,Cytomegalovirus DNA (QPCR),IU/mL
+fddfb6e0-25f1-4da4-8d42-b13617a23251,ace460bd-1e8a-4839-a35b-a04acefeb0d7,ba7bebec-60b6-444a-a068-258aa7fa2a78,Epstein-Barr virus DNA (QPCR),IU/mL
+82e935bb-b226-4bdb-9766-c233d04ce02b,ace460bd-1e8a-4839-a35b-a04acefeb0d7,ba7bebec-60b6-444a-a068-258aa7fa2a78,Humaan herpesvirus type 6 DNA (QPCR),KopieÃ«n/mL
+6150a061-cb02-4f27-ae01-989fc03d02d3,6f8bcad4-44cb-4e86-b32f-cf00f6bc03cb,ba7bebec-60b6-444a-a068-258aa7fa2a78,TSH,mIU/L
+a4a16fe3-28ab-454d-a718-b510984e4089,6f8bcad4-44cb-4e86-b32f-cf00f6bc03cb,ba7bebec-60b6-444a-a068-258aa7fa2a78,Vrij T4,pmol/L
+bc54c878-eee1-4c24-aec7-9893dc3267b3,e3badbdc-b4d9-4e1f-933c-e3726f2f10b8,ba7bebec-60b6-444a-a068-258aa7fa2a78,IGF-I,nmol/L
+901649a8-8afc-408a-9c4e-facc49aed63b,e3badbdc-b4d9-4e1f-933c-e3726f2f10b8,ba7bebec-60b6-444a-a068-258aa7fa2a78,IGF-I SD waarde,
+358e2055-4218-4974-a3ee-b9edba0450f3,36126b0c-afd3-48f6-94ac-c2bc9a4b5ed8,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgG-totaal,g/L
+a69c1add-a936-4a72-bf26-d4914c1c8023,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,SCT-Id,
+a2d29e6b-ac7e-458e-9e1f-6a8401a1019f,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Product,
+5c7a0983-dc37-4d20-b73c-f6ce1e572437,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Procedure,
+7d3298fd-6959-4000-a52b-a81df35c1a52,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Procedure datum,
+c47e3c02-a236-4140-b6cc-9f8a2ed0a582,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Productstaat,
+5277bd9b-580b-4e50-b5ed-2918a6ea8754,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Tx Soort,
+c62f7419-edc2-49c1-8d48-45b8e5505e95,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Tx Locatie,
+5f645e3a-5884-4aac-acf7-6b73ae1b63b8,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Tx Datum,
+0a039e33-cde0-40b8-812d-3ab8c6d79fb1,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Aantal productzakken,x1
+56ad1ecf-72e9-497d-8457-f3216268a3bd,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Productzak volume,mL
+38d8b999-803f-41e1-8141-38e4faca94b4,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Patient Gewicht,kg
+6f2b07b0-6077-4f50-8219-0c64c62ccac0,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,WBC Totaal,x10^9
+d43ec3f2-7417-4efb-8a04-dda521a518a8,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,WBC/kg,x10^6/kg
+96064ce0-25b1-4ced-9123-c2c723f4326c,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD34 totaal,x10^6
+dc66c4b3-b52b-4cdc-abee-2e66329201c3,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,CD34/kg,x10^6/kg
+1a18d0ac-6973-425a-acdd-dbd7a3ab07e4,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,SEC,
+98176981-3f47-4b38-b4b7-c54fd80fd76b,42faae84-156f-4ba5-9fc3-f8d3ccaa463c,ba7bebec-60b6-444a-a068-258aa7fa2a78,Opmerkingen,
+3af0fff5-40e7-4b91-9651-a42ea540e608,e1361b77-691a-4e44-9885-2b2c8665c6d3,ba7bebec-60b6-444a-a068-258aa7fa2a78,ABO Bloedgroep,
+3a996525-effe-4ace-a80d-241bb92e7c96,e1361b77-691a-4e44-9885-2b2c8665c6d3,ba7bebec-60b6-444a-a068-258aa7fa2a78,Rhesus D Factor,
+18b215b7-46f0-4a1b-abb3-dec5e8a86555,e1361b77-691a-4e44-9885-2b2c8665c6d3,ba7bebec-60b6-444a-a068-258aa7fa2a78,Antistofscreening,
+5841f062-eae0-40fa-b8a4-0c771522a810,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Protrombinetijd,sec
+8db39966-c419-4b12-adde-c0c487b7bdce,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,APTT,sec
+63611a97-3446-440b-ac88-dafc031b52f6,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Geact. T-cellen (CD4),% binnen CD4
+a8f1c942-0730-4a7a-94c7-96c46aa718cc,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,NaÃ¯eve T-cellen (CD4),% binnen CD4
+259e0e27-3bca-40de-bded-18c3cfae2e44,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Eff/Mem T-cellen (CD4),% binnen CD4
+46668d59-c48c-42c4-a0f8-a464aa048ea5,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Geact. T-cellen (CD8),% binnen CD8
+550ea166-fa10-4a19-8d8a-f67bb1d8e8f8,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,NaÃ¯eve T-cellen (CD8),% binnen CD8
+2a310511-b498-4afc-9da2-16339434a85b,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Eff/Mem T-cellen (CD8),% binnen CD8
+cbf1c0d7-f3e4-4eae-831c-0fbfb8512dbc,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,NaÃ¯eve B-cellen,% binnen B
+2af5a43f-3290-4664-a1ef-af9605a059e5,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,Onrijp perifere B-cellen,% binnen B
+f7980b78-f6de-4058-82b8-75e86124dda0,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgM geheugen B-cellen,% binnen B
+3e1cb593-d852-40a5-9755-533253fa8d7a,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgG geheugen B-cellen,% binnen B
+8e7abfe6-a428-43e3-b818-18198990d52d,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgA geheugen B-cellen,% binnen B
+ec5399ff-0e03-4bec-a251-1f111fd1a29a,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgM-totaal,g/L
+cba61a8f-1254-42c1-8291-80569394dc57,6687e45c-961c-4e7b-a1bf-65ccdd649556,ba7bebec-60b6-444a-a068-258aa7fa2a78,IgA-totaal,g/L
+4f0a2de9-4761-403b-92ae-a6df9d9c4b5c,169117bb-f639-4b03-94dc-fc2277aa8939,ba7bebec-60b6-444a-a068-258aa7fa2a78,Cortisol,Âµmol/L
+09964792-6491-4004-a7d3-09e552abb8c9,169117bb-f639-4b03-94dc-fc2277aa8939,ba7bebec-60b6-444a-a068-258aa7fa2a78,IGFBP-3,mg/L
+b80eae58-3c2f-408f-8d83-a8f3e4c7b886,169117bb-f639-4b03-94dc-fc2277aa8939,ba7bebec-60b6-444a-a068-258aa7fa2a78,IGFBP3 SD waarde,
+c3a3a159-1747-414d-afee-e289fa4690c3,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Zuurgraad,
+50c2e510-8a5d-4278-b8a2-907947d397e6,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Leukocyten screening,/ÂµL
+15f757e9-ac32-4920-aadc-624e4dc6908c,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Erytrocyten / vrij Hb,/ÂµL
+4ac723c8-7b9d-4160-94ac-148917bb5fec,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Eiwit screening,g/L
+bd1a1239-3544-4d44-b779-441fb4ddf62b,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Glucose screening,
+42c290b5-f2d0-4ca8-a925-41296a2861ce,8854575b-2220-414f-b18f-799dc240dc47,ba7bebec-60b6-444a-a068-258aa7fa2a78,Nitriet,
+b984f64e-dbf6-491a-bd76-51d06f7995a6,55053433-5a07-42eb-80fb-663176f42471,ba7bebec-60b6-444a-a068-258aa7fa2a78,Totaal Eiwit,g/L
+6d303386-5add-4c18-86b4-8741b67793e8,55053433-5a07-42eb-80fb-663176f42471,ba7bebec-60b6-444a-a068-258aa7fa2a78,Eiwit / creat ratio,mg/mmol
+4f67d5a8-ae38-419c-8fcd-d2a28c9b4a9a,4e734060-e694-465d-a9ea-4dd2c149e4dd,ba7bebec-60b6-444a-a068-258aa7fa2a78,Dysmorfe erytrocyten,
+53f89542-ba73-449d-8ebf-cae99205ec53,4e734060-e694-465d-a9ea-4dd2c149e4dd,ba7bebec-60b6-444a-a068-258aa7fa2a78,Kalium,mmol/L
+22c0bdfe-0616-4306-a4be-19809348c190,4e734060-e694-465d-a9ea-4dd2c149e4dd,ba7bebec-60b6-444a-a068-258aa7fa2a78,Micro-albumine,mg/L
+5594cac5-7281-44e0-a433-b099623572f2,4e734060-e694-465d-a9ea-4dd2c149e4dd,ba7bebec-60b6-444a-a068-258aa7fa2a78,Albumine / creat ratio,mg/mmol kr
+dc9dacc8-b672-47ad-899c-d21088ef5243,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Materiaaltype,
+f232c034-9fc5-4861-802e-2669a1e4c125,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Zuurgraad (Art.),
+b528ab98-8abc-4a62-8cf0-9b21f1a4a74d,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Koolzuurspanning (Art.),mm Hg
+15f3272e-10d4-4548-b562-d2463eeda8d3,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Zuurstofspanning (Art.),mm Hg
+cb24580d-5b41-4bda-a138-6805f5be16a8,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Actueel Bicarbonaat (Art.),mmol/l
+ca3db59a-3754-43a5-bddf-77f6f5381032,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Base Excess (Art.),mmol/L
+6ba5d69a-8072-4308-bc93-39efc7e944cd,1a7f507c-8ae7-41e3-952c-7d7e03ddc767,ba7bebec-60b6-444a-a068-258aa7fa2a78,Calcium geÃ¯oniseerd,mmol/L
+47415738-a648-4311-9374-4fd7ab5e05d2,52b757b1-b437-44ff-a3db-e1861db09029,ba7bebec-60b6-444a-a068-258aa7fa2a78,Diverse bepalingen,
