@@ -68,24 +68,19 @@ const MiniKalender: React.FC<MiniKalenderProps> = ({ initialDate = new Date(), a
 			calendarDays.push(
 				<div
 					key={day}
-					className={`relative flex items-center justify-center h-8 w-8 mx-auto cursor-pointer transition-all duration-200 ${
-						isToday 
-							? 'bg-white text-blue-700 font-bold rounded-full shadow-md'
-							: 'hover:bg-blue-600 hover:text-white rounded-full'
-					}`}
+					className={`relative flex items-center justify-center h-8 w-8 mx-auto cursor-pointer transition-all duration-200 rounded-full
+							${isToday
+							? 'bg-white text-blue-700 font-bold shadow-md'
+							: 'hover:bg-blue-600 hover:text-white'
+						}
+							${hasAppointments ? 'border-2 border-yellow-400' : ''}
+						`}
+
 					onMouseEnter={() => setHoveredDay(day)}
 					onMouseLeave={() => setHoveredDay(null)}
 				>
 					<span className="z-10 text-sm">{day}</span>
 					
-					{/* Appointment indicator */}
-					{hasAppointments && (
-						<div className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border ${
-							isToday 
-								? 'bg-red-500 border-white' 
-								: 'bg-yellow-400 border-blue-700'
-						} z-20`}></div>
-					)}
 
 					{/* Hover tooltip */}
 					{hoveredDay === day && dayAppointments.length > 0 && (
