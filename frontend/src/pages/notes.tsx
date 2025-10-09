@@ -238,7 +238,9 @@ const Notes: React.FC = () => {
 							{searchTerm && (
 								<div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
 									<span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
-										{filteredNotes.length} resultaat{filteredNotes.length !== 1 ? 'en' : ''}
+										{filteredNotes.length === 0
+											? 'Geen resultaten'
+											: `${filteredNotes.length} resultaat${filteredNotes.length !== 1 ? 'en' : ''}`}
 									</span>
 									<button
 										onClick={() => setSearchTerm('')}
