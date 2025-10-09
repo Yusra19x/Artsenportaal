@@ -51,36 +51,8 @@ const Sidebar: React.FC = () => {
         </ul>
 
         <hr className="border-t-2 border-[#d0d5dd] my-5" />
-
-        <ul className="list-none p-0">
-          <li className="flex items-center mb-4">
-            <img src="/Icons/Plus.svg" alt="Afspraak toevoegen" className="w-8 h-8 mr-4" />
-            <span className="text-black">Afspraak toevoegen</span>
-          </li>
-          <li className="flex items-center mb-4">
-            <img src="/Icons/Graph.svg" alt="Sessie toevoegen arts" className="w-8 h-8 mr-4" />
-            <a href="/artsession" className="text-black no-underline hover:font-bold">
-              Sessie toevoegen arts
-            </a>
-          </li>
-          <li className="flex items-center mb-4">
-            <img src="/Icons/Graph.svg" alt="Sessie toevoegen fysiotherapeut" className="w-8 h-8 mr-4" />
-            <a href="/physiosession" className="text-black no-underline hover:font-bold">
-              Sessie toevoegen fysiotherapeut
-            </a>
-          </li>
-        </ul>
-
-        <hr className="border-t-2 border-[#d0d5dd] my-5" />
       </nav>
 
-      {/* Role Indicator */}
-      <div className="mb-4 p-3 bg-blue-100 rounded-lg">
-        <div className="flex items-center">
-          <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-          <span className="text-sm font-medium text-blue-800">Dokter Modus</span>
-        </div>
-      </div>
 
       {/* Settings and Logout */}
       <div className="mt-auto">
