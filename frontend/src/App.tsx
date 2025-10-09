@@ -4,7 +4,7 @@ import AboutUsPage from "./pages/aboutuspage";
 import PatientPage from "./pages/patientpage";
 import ArtsPage from "./pages/artspage";
 import DashboardPage from "./pages/dashboardpage";
-import PatientOverview, { PatientSearch } from "./pages/patientoverview"; 
+import PatientOverview from "./pages/patientoverview"; 
 import Sidebar from "./components/sidebar";
 import ResearchSidebar from "./components/researchsidebar";
 import LoginPage from "./pages/loginpage";
@@ -82,7 +82,7 @@ const App: React.FC = () => {
 							path="/patients" 
 							element={
 								<ProtectedRoute requiredRole="doctor">
-									<PatientPage />
+									<PatientOverview />
 								</ProtectedRoute>
 							} 
 						/>
@@ -94,19 +94,12 @@ const App: React.FC = () => {
 								</ProtectedRoute>
 							} 
 						/>
-						<Route 
-							path="/patient/search" 
-							element={
-								<ProtectedRoute requiredRole="doctor">
-									<PatientSearch />
-								</ProtectedRoute>
-							} 
-						/>
+
 						<Route 
 							path="/patient/:id" 
 							element={
 								<ProtectedRoute requiredRole="doctor">
-									<PatientOverview />
+									<PatientPage />
 								</ProtectedRoute>
 							} 
 						/>

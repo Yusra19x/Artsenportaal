@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { logout } from "../services/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
     const navigate = useNavigate();
+
+    // Sidebar is standaard open bij eerste bezoek
     const [isOpen, setIsOpen] = useState(true);
 
-    // Optioneel: sla voorkeur op in localStorage
+    // Lees voorkeur uit localStorage
     useEffect(() => {
         const saved = localStorage.getItem("sidebarOpen");
-        if (saved) setIsOpen(saved === "true");
+        if (saved !== null) {
+            setIsOpen(saved === "true");
+        }
     }, []);
 
+    // Sla voorkeur op bij verandering
     useEffect(() => {
         localStorage.setItem("sidebarOpen", String(isOpen));
     }, [isOpen]);
@@ -42,7 +47,11 @@ const Sidebar: React.FC = () => {
                             stroke="currentColor"
                             className="w-6 h-6"
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
                         </svg>
                     ) : (
                         <svg
@@ -53,7 +62,11 @@ const Sidebar: React.FC = () => {
                             stroke="currentColor"
                             className="w-6 h-6"
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
                         </svg>
                     )}
                 </button>
@@ -78,20 +91,18 @@ const Sidebar: React.FC = () => {
                         { icon: "Documents", text: "Notities", link: "/notes" },
                         { icon: "Patients", text: "Patiëntenoverzicht", link: "/patients" },
                     ].map((item) => (
-                        <li key={item.text} className="flex items-center mb-4">
-                            <img
-                                src={`/Icons/${item.icon}.svg`}
-                                alt={item.text}
-                                className="w-8 h-8 mr-4"
-                            />
-                            {isOpen && (
-                                <a
-                                    href={item.link}
-                                    className="text-black no-underline hover:font-bold whitespace-nowrap"
-                                >
-                                    {item.text}
-                                </a>
-                            )}
+                        <li key={item.text} className="mb-4">
+                            <Link
+                                to={item.link}
+                                className="flex items-center text-black no-underline hover:font-bold whitespace-nowrap"
+                            >
+                                <img
+                                    src={`/Icons/${item.icon}.svg`}
+                                    alt={item.text}
+                                    className="w-8 h-8 mr-4"
+                                />
+                                {isOpen && <span>{item.text}</span>}
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -102,22 +113,28 @@ const Sidebar: React.FC = () => {
             {/* Settings + Logout */}
             <div>
                 <ul className="list-none p-0">
-                    <li className="flex items-center mb-4">
-                        <img src="/Icons/Settings.svg" alt="Instellingen" className="w-8 h-8 mr-4" />
-                        {isOpen && (
-                            <a
-                                href="/settings"
-                                className="text-black no-underline hover:font-bold"
-                            >
-                                Instellingen
-                            </a>
-                        )}
+                    <li className="mb-4">
+                        <Link
+                            to="/settings"
+                            className="flex items-center text-black no-underline hover:font-bold whitespace-nowrap"
+                        >
+                            <img
+                                src="/Icons/Settings.svg"
+                                alt="Instellingen"
+                                className="w-8 h-8 mr-4"
+                            />
+                            {isOpen && <span>Instellingen</span>}
+                        </Link>
                     </li>
                     <li
                         className="flex items-center cursor-pointer"
                         onClick={handleLogout}
                     >
-                        <img src="/Icons/Logout.svg" alt="Uitloggen" className="w-8 h-8 mr-4" />
+                        <img
+                            src="/Icons/Logout.svg"
+                            alt="Uitloggen"
+                            className="w-8 h-8 mr-4"
+                        />
                         {isOpen && (
                             <span className="text-black hover:font-bold">Uitloggen</span>
                         )}
