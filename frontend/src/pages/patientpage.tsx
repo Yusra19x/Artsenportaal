@@ -74,13 +74,34 @@ const PatientsPage: React.FC = () => {
             {/* Tab Content */}
             <div className="p-6 bg-white flex-1 overflow-y-auto">
                 {activeTab === "Algemeen" && (
-                    <div>
-                        <h2 className="text-xl font-semibold mb-2 text-blue-900">
-                            Algemene informatie
-                        </h2>
-                        <p>Leeftijd: 17 jaar</p>
-                        <p>Geslacht: {patient.gender}</p>
-                        <p>Diagnose: {patient.diagnosis}</p>
+                    <div className="grid grid-cols-2 gap-10">
+                        {/* 👩‍⚕️ Linkerzijde - patiëntinformatie */}
+                        <div>
+                            <h2 className="text-xl font-semibold mb-2 text-blue-900">
+                                Algemene informatie
+                            </h2>
+                            <div className="space-y-2">
+                                <p><span className="font-medium text-gray-700">Naam:</span> {patient.name}</p>
+                                <p><span className="font-medium text-gray-700">Leeftijd:</span> 17 jaar</p>
+                                <p><span className="font-medium text-gray-700">Geslacht:</span> {patient.gender}</p>
+                                <p><span className="font-medium text-gray-700">Diagnose:</span> {patient.diagnosis}</p>
+                                <p><span className="font-medium text-gray-700">E-mailadres:</span> emma.thompson@email.com</p>
+                                <p><span className="font-medium text-gray-700">Telefoonnummer:</span> +31 6 9876 5432</p>
+                            </div>
+                        </div>
+
+                        {/* 👩‍👧 Rechterzijde - contactpersoon */}
+                        <div>
+                            <h2 className="text-xl font-semibold mb-2 text-blue-900">
+                                Contactpersoon
+                            </h2>
+                            <div className="space-y-2">
+                                <p><span className="font-medium text-gray-700">Naam:</span> Sarah Thompson</p>
+                                <p><span className="font-medium text-gray-700">Relatie:</span> Moeder</p>
+                                <p><span className="font-medium text-gray-700">E-mailadres:</span> sarah.thompson@email.com</p>
+                                <p><span className="font-medium text-gray-700">Telefoonnummer:</span> +31 6 1122 3344</p>
+                            </div>
+                        </div>
                     </div>
                 )}
 
