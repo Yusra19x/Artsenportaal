@@ -75,7 +75,7 @@ const PatientsPage: React.FC = () => {
             <div className="p-6 bg-white flex-1 overflow-y-auto">
                 {activeTab === "Algemeen" && (
                     <div className="grid grid-cols-2 gap-10">
-                        {/* 👩‍⚕️ Linkerzijde - patiëntinformatie */}
+                        {/* Linkerzijde - patiëntinformatie */}
                         <div>
                             <h2 className="text-xl font-semibold mb-2 text-blue-900">
                                 Algemene informatie
@@ -90,7 +90,7 @@ const PatientsPage: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* 👩‍👧 Rechterzijde - contactpersoon */}
+                        {/* Rechterzijde - contactpersoon */}
                         <div>
                             <h2 className="text-xl font-semibold mb-2 text-blue-900">
                                 Contactpersoon
@@ -107,11 +107,68 @@ const PatientsPage: React.FC = () => {
 
                 {activeTab === "Afspraken" && (
                     <div>
-                        <h2 className="text-xl font-semibold mb-2 text-blue-900">Afspraken</h2>
-                        <p>Hier komen afspraken van deze patiënt</p>
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-xl font-semibold text-blue-900">Afspraken</h2>
+                            <button className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition">
+                                + Afspraak toevoegen
+                            </button>
+                        </div>
+
+                        {/* Aankomende afspraken */}
+                        <h3 className="text-lg font-medium text-gray-800 mb-2">Aankomend</h3>
+                        <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">
+                            <table className="w-full text-left text-sm">
+                                <thead className="bg-gray-50 border-b">
+                                    <tr>
+                                        <th className="px-4 py-2">Datum</th>
+                                        <th className="px-4 py-2">Tijd</th>
+                                        <th className="px-4 py-2">Soort</th>
+                                        <th className="px-4 py-2">Locatie</th>
+                                        <th className="px-4 py-2">Arts</th>
+                                        <th className="px-4 py-2">Notitie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="hover:bg-gray-50 transition">
+                                        <td className="px-4 py-2">14-10-2025</td>
+                                        <td className="px-4 py-2">12:35</td>
+                                        <td className="px-4 py-2">Bloedonderzoek</td>
+                                        <td className="px-4 py-2">Ziekenhuis, Kerkstraat 12</td>
+                                        <td className="px-4 py-2">Dr. Johan Janssen</td>
+                                        <td className="px-4 py-2">Nuchter komen</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Verleden afspraken */}
+                        <h3 className="text-lg font-medium text-gray-800 mb-2">Verleden</h3>
+                        <div className="border border-gray-200 rounded-lg overflow-hidden">
+                            <table className="w-full text-left text-sm">
+                                <thead className="bg-gray-50 border-b">
+                                    <tr>
+                                        <th className="px-4 py-2">Datum</th>
+                                        <th className="px-4 py-2">Tijd</th>
+                                        <th className="px-4 py-2">Soort</th>
+                                        <th className="px-4 py-2">Locatie</th>
+                                        <th className="px-4 py-2">Arts</th>
+                                        <th className="px-4 py-2">Notitie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="hover:bg-gray-50 transition">
+                                        <td className="px-4 py-2">06-10-2025</td>
+                                        <td className="px-4 py-2">11:00</td>
+                                        <td className="px-4 py-2">Controle</td>
+                                        <td className="px-4 py-2">UMC Utrecht, Afdeling 3B</td>
+                                        <td className="px-4 py-2">Dr. Lisa de Vries</td>
+                                        <td className="px-4 py-2">Medicatie geëvalueerd</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
-
                 {activeTab === "Notities" && (
                     <div>
                         <h2 className="text-xl font-semibold mb-2 text-blue-900">Notities</h2>
@@ -121,8 +178,33 @@ const PatientsPage: React.FC = () => {
 
                 {activeTab === "Medicatie" && (
                     <div>
-                        <h2 className="text-xl font-semibold mb-2 text-blue-900">Medicatie</h2>
-                        <p>Hier komt een overzicht van medicatie</p>
+                        <h2 className="text-xl font-semibold mb-4 text-blue-900">
+                            Medicatie
+                        </h2>
+
+                        <div className="space-y-4">
+                            <div>
+                                <p><span className="font-medium text-gray-700">Medicijn:</span> Prednison</p>
+                                <p><span className="font-medium text-gray-700">Dosering:</span> 10 mg</p>
+                                <p><span className="font-medium text-gray-700">Frequentie:</span> 1x per dag (ochtend)</p>
+                            </div>
+
+                            <hr className="my-4 border-gray-200" />
+
+                            <div>
+                                <p><span className="font-medium text-gray-700">Medicijn:</span> Methotrexaat</p>
+                                <p><span className="font-medium text-gray-700">Dosering:</span> 15 mg</p>
+                                <p><span className="font-medium text-gray-700">Frequentie:</span> 1x per week</p>
+                            </div>
+
+                            <hr className="my-4 border-gray-200" />
+
+                            <div>
+                                <p><span className="font-medium text-gray-700">Medicijn:</span> Calcium + Vitamine D</p>
+                                <p><span className="font-medium text-gray-700">Dosering:</span> 500 mg / 400 IU</p>
+                                <p><span className="font-medium text-gray-700">Frequentie:</span> 2x per dag</p>
+                            </div>
+                        </div>
                     </div>
                 )}
 
