@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import LabResultChart from "../components/LabResultChart";
 
 interface Patient {
     id: number;
@@ -8,13 +9,27 @@ interface Patient {
     gender?: string;
     diagnosis?: string;
 }
+interface Measurement {
+    id: number;
+    measurementId: string;
+    dateTime: string;
+    value: string;
+}
+
+interface LabResult {
+    id: number;
+    resultName: string;
+    unit: string;
+    measurements: Measurement[];
+}
 
 const PatientsPage: React.FC = () => {
     const [patient, setPatient] = useState<Patient | null>(null);
     const [activeTab, setActiveTab] = useState("Algemeen");
+    const [labResults, setLabResults] = useState<LabResult[]>([]);
 
+    // Eerste useEffect: haalt patiëntgegevens op
     useEffect(() => {
-        // Haal de eerste patiënt op uit Strapi
         const fetchPatient = async () => {
             try {
                 const res = await axios.get("http://localhost:1337/api/patients");
@@ -36,6 +51,36 @@ const PatientsPage: React.FC = () => {
         fetchPatient();
     }, []);
 
+    // Tweede useEffect: haalt labresultaten op
+    useEffect(() => {
+        const fetchLabResults = async () => {
+            try {
+                const res = await axios.get("http://localhost:1337/api/lab-results", {
+                    params: { populate: ["measurements"] },
+                });
+
+                const formatted = res.data.data.map((item: any) => ({
+                    id: item.id,
+                    resultName: item.resultName,
+                    unit: item.unit || "",
+                    measurements: item.measurements?.map((m: any) => ({
+                        id: m.id,
+                        measurementId: m.measurementId,
+                        dateTime: m.dateTime,
+                        value: m.value,
+                    })) || [],
+                }));
+
+                setLabResults(formatted);
+            } catch (error) {
+                console.error("❌ Fout bij ophalen labresultaten:", error);
+            }
+        };
+
+        fetchLabResults();
+    }, []);
+
+    // Loading state
     if (!patient)
         return (
             <div className="flex justify-center items-center h-screen">
@@ -170,11 +215,67 @@ const PatientsPage: React.FC = () => {
                     </div>
                 )}
                 {activeTab === "Notities" && (
-                    <div>
-                        <h2 className="text-xl font-semibold mb-2 text-blue-900">Notities</h2>
-                        <p>Hier komen notities over deze patiënt</p>
-                    </div>
-                )}
+                        <div>
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-xl font-semibold text-blue-900">Notities</h2>
+                                <button className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition">
+                                    + Notitie toevoegen
+                                </button>
+                            </div>
+
+                            {/* Notitievoorbeeld */}
+                            <div className="border border-gray-200 rounded-lg mb-6">
+                                <div className="flex justify-between items-center bg-gray-50 border-b px-4 py-2">
+                                    <div className="flex gap-6 text-sm text-gray-700">
+                                        <p><span className="font-medium">Datum:</span> 14-09-2025</p>
+                                        <p><span className="font-medium">Tijd:</span> 14:27</p>
+                                        <p><span className="font-medium">Specialist:</span> Dr. de Vries</p>
+                                        <p><span className="font-medium">Inhoud:</span> Bloedonderzoek resultaten besproken</p>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <button title="Bekijken" className="text-blue-600 hover:text-blue-800">
+                                            👁️
+                                        </button>
+                                        <button title="Verwijderen" className="text-red-500 hover:text-red-700">
+                                            🗑️
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Inhoud notitie */}
+                                <div className="p-4 text-sm text-gray-700 leading-relaxed">
+                                    Patiënte reageert goed op huidige medicatie.
+                                    Vermoeidheid verminderd, maar spierzwakte blijft aanwezig.
+                                    Overweeg dosisaanpassing bij volgende afspraak.
+                                </div>
+                            </div>
+
+                            {/* Tweede dummy-notitie */}
+                            <div className="border border-gray-200 rounded-lg mb-6">
+                                <div className="flex justify-between items-center bg-gray-50 border-b px-4 py-2">
+                                    <div className="flex gap-6 text-sm text-gray-700">
+                                        <p><span className="font-medium">Datum:</span> 01-08-2025</p>
+                                        <p><span className="font-medium">Tijd:</span> 09:15</p>
+                                        <p><span className="font-medium">Specialist:</span> Dr. Janssen</p>
+                                        <p><span className="font-medium">Inhoud:</span> Controle spierkracht en huid</p>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <button title="Bekijken" className="text-blue-600 hover:text-blue-800">
+                                            👁️
+                                        </button>
+                                        <button title="Verwijderen" className="text-red-500 hover:text-red-700">
+                                            🗑️
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="p-4 text-sm text-gray-700 leading-relaxed">
+                                    Geen nieuwe klachten gemeld. Spierkracht stabiel, huiduitslag verminderd.
+                                    Over drie maanden nieuwe controle.
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                 {activeTab === "Medicatie" && (
                     <div>
@@ -209,11 +310,34 @@ const PatientsPage: React.FC = () => {
                 )}
 
                 {activeTab === "Labresultaten" && (
-                    <div>
-                        <h2 className="text-xl font-semibold mb-2 text-blue-900">
-                            Labresultaten
-                        </h2>
-                        <p>Hier komen labresultaten en grafieken</p>
+                    <div className="flex gap-6">
+                        {/* Filtersectie */}
+                        <div className="w-64 border border-gray-200 rounded-lg bg-white p-4">
+                            <div className="flex items-center gap-2 mb-4">
+                                <span className="text-blue-600 text-xl">🧪</span>
+                                <h3 className="text-lg font-semibold text-gray-800">Filter</h3>
+                            </div>
+
+                            <div className="space-y-3 text-sm">
+                                {["Hemoglobine", "Witte bloedcellen", "Glucose", "CRP", "Calcium"].map((label, index) => (
+                                    <label key={index} className="flex items-center justify-between cursor-pointer">
+                                        <span>{label}</span>
+                                        <input type="checkbox" className="w-4 h-4 text-blue-600 border-gray-300 rounded" />
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Grafieksectie */}
+                        <div className="flex-1 bg-white border border-gray-200 rounded-lg p-6">
+                            <h3 className="text-lg font-semibold text-blue-900 mb-4">Labresultatenoverzicht</h3>
+                            <p className="text-sm text-gray-500 mb-6">Gemeten waarden over de afgelopen maanden</p>
+
+                            {/* Placeholder voor grafiek */}
+                            <div className="h-80 flex items-center justify-center bg-gray-50 border border-dashed border-gray-300 rounded-lg">
+                                <span className="text-gray-400">[ Grafiek met labresultaten komt hier ]</span>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
