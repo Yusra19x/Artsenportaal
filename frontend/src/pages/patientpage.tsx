@@ -29,10 +29,18 @@ const PatientsPage: React.FC = () => {
     const [patient, setPatient] = useState<Patient | null>(null);
     const [activeTab, setActiveTab] = useState("Algemeen");
     const [labResults, setLabResults] = useState<LabResult[]>([]);
+
+    // Notities
     const [isAddNoteOpen, setIsAddNoteOpen] = useState(false);
     const [editNote, setEditNote] = useState<{ id: number; title: string; content: string } | null>(null);
+
+    // Afspraken
     const [isAddAppointmentOpen, setIsAddAppointmentOpen] = useState(false);
+    const [editAppointment, setEditAppointment] = useState<any | null>(null);
+    const [viewAppointment, setViewAppointment] = useState<any | null>(null);
     const [appointments, setAppointments] = useState<any[]>([]);
+
+    // Notities data
     const [notes, setNotes] = useState([
         {
             id: 1,
@@ -71,7 +79,6 @@ const PatientsPage: React.FC = () => {
                 "Huidirritatie zichtbaar verbeterd. Advies om huidige zalf voort te zetten gedurende 2 weken.",
         },
     ]);
-
 
     // Eerste useEffect: haalt patiëntgegevens op
     useEffect(() => {
@@ -198,15 +205,28 @@ const PatientsPage: React.FC = () => {
 
                 {activeTab === "Afspraken" && (
                     <div>
-                        {/* 📅 Afspraak toevoegen popup */}
+                        {/* 📅 Popup aanmaken/bewerken/bekijken */}
                         <AddAppointmentPopup
-                            isOpen={isAddAppointmentOpen}
-                            onClose={() => setIsAddAppointmentOpen(false)}
+                            isOpen={isAddAppointmentOpen || !!editAppointment || !!viewAppointment}
+                            onClose={() => {
+                                setIsAddAppointmentOpen(false);
+                                setEditAppointment(null);
+                                setViewAppointment(null);
+                            }}
                             onAppointmentAdded={(newAppointment) => {
                                 setAppointments((prev) => [...prev, newAppointment]);
                                 setIsAddAppointmentOpen(false);
                             }}
+                            onAppointmentEdited={(updated) => {
+                                setAppointments((prev) => prev.map((a) => (a.id === updated.id ? updated : a)));
+                                setEditAppointment(null);
+                            }}
+
+                            /* ✅ hier is de fix */
+                            editAppointment={viewAppointment || editAppointment}
+                            viewMode={!!viewAppointment}
                         />
+
 
                         {/* Header */}
                         <div className="flex justify-between items-center mb-4">
@@ -219,7 +239,7 @@ const PatientsPage: React.FC = () => {
                             </button>
                         </div>
 
-                        {/* Als er nog geen afspraken zijn */}
+                        {/* Geen afspraken */}
                         {appointments.length === 0 ? (
                             <p className="text-gray-500 italic">Nog geen afspraken toegevoegd.</p>
                         ) : (
@@ -252,12 +272,14 @@ const PatientsPage: React.FC = () => {
                                                     <div className="flex justify-end gap-3">
                                                         <button
                                                             title="Bekijken"
+                                                            onClick={() => setViewAppointment(appt)}
                                                             className="text-black hover:text-gray-600 transition"
                                                         >
                                                             <i className="bi bi-eye text-lg"></i>
                                                         </button>
                                                         <button
                                                             title="Bewerken"
+                                                            onClick={() => setEditAppointment(appt)}
                                                             className="text-black hover:text-gray-600 transition"
                                                         >
                                                             <i className="bi bi-pencil text-lg"></i>
@@ -283,6 +305,7 @@ const PatientsPage: React.FC = () => {
                         )}
                     </div>
                 )}
+
 
 
                 {activeTab === "Notities" && (
