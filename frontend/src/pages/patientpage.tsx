@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LabResultChart from "../components/LabResultChart";
 import AddNotePopup from "../components/addnotepopup";
+import AddAppointmentPopup from "../components/addappointmentpopup";
 
 interface Patient {
     id: number;
@@ -30,6 +31,8 @@ const PatientsPage: React.FC = () => {
     const [labResults, setLabResults] = useState<LabResult[]>([]);
     const [isAddNoteOpen, setIsAddNoteOpen] = useState(false);
     const [editNote, setEditNote] = useState<{ id: number; title: string; content: string } | null>(null);
+    const [isAddAppointmentOpen, setIsAddAppointmentOpen] = useState(false);
+    const [appointments, setAppointments] = useState<any[]>([]);
     const [notes, setNotes] = useState([
         {
             id: 1,
@@ -195,68 +198,93 @@ const PatientsPage: React.FC = () => {
 
                 {activeTab === "Afspraken" && (
                     <div>
+                        {/* 📅 Afspraak toevoegen popup */}
+                        <AddAppointmentPopup
+                            isOpen={isAddAppointmentOpen}
+                            onClose={() => setIsAddAppointmentOpen(false)}
+                            onAppointmentAdded={(newAppointment) => {
+                                setAppointments((prev) => [...prev, newAppointment]);
+                                setIsAddAppointmentOpen(false);
+                            }}
+                        />
+
+                        {/* Header */}
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-xl font-semibold text-blue-900">Afspraken</h2>
-                            <button className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition">
+                            <button
+                                onClick={() => setIsAddAppointmentOpen(true)}
+                                className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition"
+                            >
                                 + Afspraak toevoegen
                             </button>
                         </div>
 
-                        {/* Aankomende afspraken */}
-                        <h3 className="text-lg font-medium text-gray-800 mb-2">Aankomend</h3>
-                        <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">
-                            <table className="w-full text-left text-sm">
-                                <thead className="bg-gray-50 border-b">
-                                    <tr>
-                                        <th className="px-4 py-2">Datum</th>
-                                        <th className="px-4 py-2">Tijd</th>
-                                        <th className="px-4 py-2">Soort</th>
-                                        <th className="px-4 py-2">Locatie</th>
-                                        <th className="px-4 py-2">Arts</th>
-                                        <th className="px-4 py-2">Notitie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="hover:bg-gray-50 transition">
-                                        <td className="px-4 py-2">14-10-2025</td>
-                                        <td className="px-4 py-2">12:35</td>
-                                        <td className="px-4 py-2">Bloedonderzoek</td>
-                                        <td className="px-4 py-2">Ziekenhuis, Kerkstraat 12</td>
-                                        <td className="px-4 py-2">Dr. Johan Janssen</td>
-                                        <td className="px-4 py-2">Nuchter komen</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        {/* Als er nog geen afspraken zijn */}
+                        {appointments.length === 0 ? (
+                            <p className="text-gray-500 italic">Nog geen afspraken toegevoegd.</p>
+                        ) : (
+                            <div className="border border-gray-200 rounded-lg overflow-hidden">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-gray-50 border-b">
+                                        <tr>
+                                            <th className="px-4 py-2">Titel</th>
+                                            <th className="px-4 py-2">Datum</th>
+                                            <th className="px-4 py-2">Tijd</th>
+                                            <th className="px-4 py-2">Arts</th>
+                                            <th className="px-4 py-2">Omschrijving</th>
+                                            <th className="px-4 py-2">Notitie</th>
+                                            <th className="px-4 py-2 text-right">Acties</th>
+                                        </tr>
+                                    </thead>
 
-                        {/* Verleden afspraken */}
-                        <h3 className="text-lg font-medium text-gray-800 mb-2">Verleden</h3>
-                        <div className="border border-gray-200 rounded-lg overflow-hidden">
-                            <table className="w-full text-left text-sm">
-                                <thead className="bg-gray-50 border-b">
-                                    <tr>
-                                        <th className="px-4 py-2">Datum</th>
-                                        <th className="px-4 py-2">Tijd</th>
-                                        <th className="px-4 py-2">Soort</th>
-                                        <th className="px-4 py-2">Locatie</th>
-                                        <th className="px-4 py-2">Arts</th>
-                                        <th className="px-4 py-2">Notitie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="hover:bg-gray-50 transition">
-                                        <td className="px-4 py-2">06-10-2025</td>
-                                        <td className="px-4 py-2">11:00</td>
-                                        <td className="px-4 py-2">Controle</td>
-                                        <td className="px-4 py-2">UMC Utrecht, Afdeling 3B</td>
-                                        <td className="px-4 py-2">Dr. Lisa de Vries</td>
-                                        <td className="px-4 py-2">Medicatie geëvalueerd</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                    <tbody>
+                                        {appointments.map((appt) => (
+                                            <tr key={appt.id} className="hover:bg-gray-50 transition">
+                                                <td className="px-4 py-2">{appt.title}</td>
+                                                <td className="px-4 py-2">
+                                                    {new Date(appt.date).toLocaleDateString("nl-NL")}
+                                                </td>
+                                                <td className="px-4 py-2">{appt.time}</td>
+                                                <td className="px-4 py-2">{appt.doctor}</td>
+                                                <td className="px-4 py-2">{appt.description}</td>
+                                                <td className="px-4 py-2">{appt.note}</td>
+                                                <td className="px-4 py-2 text-right">
+                                                    <div className="flex justify-end gap-3">
+                                                        <button
+                                                            title="Bekijken"
+                                                            className="text-black hover:text-gray-600 transition"
+                                                        >
+                                                            <i className="bi bi-eye text-lg"></i>
+                                                        </button>
+                                                        <button
+                                                            title="Bewerken"
+                                                            className="text-black hover:text-gray-600 transition"
+                                                        >
+                                                            <i className="bi bi-pencil text-lg"></i>
+                                                        </button>
+                                                        <button
+                                                            title="Verwijderen"
+                                                            onClick={() =>
+                                                                setAppointments((prev) =>
+                                                                    prev.filter((a) => a.id !== appt.id)
+                                                                )
+                                                            }
+                                                            className="text-black hover:text-gray-600 transition"
+                                                        >
+                                                            <i className="bi bi-trash text-lg"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
                     </div>
                 )}
+
+
                 {activeTab === "Notities" && (
                     <div>
                         <div className="flex justify-between items-center mb-4">

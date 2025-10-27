@@ -7,8 +7,8 @@ interface AddNotePopupProps {
     patientId: string;
     patientName: string;
     onNoteAdded?: (title?: string, content?: string) => void;
-    editNote?: { id: number; title: string; content: string } | null; // ?? nieuw
-    onNoteEdited?: (id: number, title: string, content: string) => void; // ?? nieuw
+    editNote?: { id: number; title: string; content: string } | null; 
+    onNoteEdited?: (id: number, title: string, content: string) => void; 
 }
 
 const AddNotePopup: React.FC<AddNotePopupProps> = ({
