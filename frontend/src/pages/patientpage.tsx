@@ -29,6 +29,7 @@ const PatientsPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState("Algemeen");
     const [labResults, setLabResults] = useState<LabResult[]>([]);
     const [isAddNoteOpen, setIsAddNoteOpen] = useState(false);
+    const [editNote, setEditNote] = useState<{ id: number; title: string; content: string } | null>(null);
     const [notes, setNotes] = useState([
         {
             id: 1,
@@ -261,7 +262,10 @@ const PatientsPage: React.FC = () => {
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-xl font-semibold text-blue-900">Notities</h2>
                             <button
-                                onClick={() => setIsAddNoteOpen(true)}
+                                onClick={() => {
+                                    setEditNote(null); // reset bewerkmodus
+                                    setIsAddNoteOpen(true);
+                                }}
                                 className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition"
                             >
                                 + Notitie toevoegen
@@ -271,9 +275,13 @@ const PatientsPage: React.FC = () => {
                         {/* Popup */}
                         <AddNotePopup
                             isOpen={isAddNoteOpen}
-                            onClose={() => setIsAddNoteOpen(false)}
+                            onClose={() => {
+                                setIsAddNoteOpen(false);
+                                setEditNote(null);
+                            }}
                             patientId={String(patient.id)}
                             patientName={patient.name}
+                            editNote={editNote} // 👈 nieuw
                             onNoteAdded={(title?: string, content?: string) => {
                                 if (title && content) {
                                     const newNote = {
@@ -289,6 +297,13 @@ const PatientsPage: React.FC = () => {
                                     };
                                     setNotes((prev) => [newNote, ...prev]);
                                 }
+                                setIsAddNoteOpen(false);
+                            }}
+                            onNoteEdited={(id, title, content) => {
+                                setNotes((prev) =>
+                                    prev.map((n) => (n.id === id ? { ...n, title, content } : n))
+                                );
+                                setEditNote(null);
                                 setIsAddNoteOpen(false);
                             }}
                         />
@@ -308,31 +323,49 @@ const PatientsPage: React.FC = () => {
                                                 <span className="font-medium">Tijd:</span> {note.time}
                                             </p>
                                             <p>
-                                                <span className="font-medium">Specialist:</span>{" "}
-                                                {note.specialist}
+                                                <span className="font-medium">Specialist:</span> {note.specialist}
                                             </p>
                                             <p>
-                                                <span className="font-medium">Inhoud:</span> {note.title}
+                                                <span className="font-medium">Titel:</span> {note.title}
                                             </p>
                                         </div>
+
                                         <div className="flex items-center gap-3">
                                             <button
                                                 title="Bekijken"
-                                                className="text-blue-600 hover:text-blue-800"
+                                                className="text-black hover:text-gray-600 transition"
+                                                onClick={() => alert(`Inhoud:\n\n${note.content}`)}
                                             >
-                                                👁️
+                                                <i className="bi bi-eye text-lg"></i>
                                             </button>
+
+                                            <button
+                                                title="Bewerken"
+                                                className="text-black hover:text-gray-600 transition"
+                                                onClick={() => {
+                                                    setEditNote({
+                                                        id: note.id,
+                                                        title: note.title,
+                                                        content: note.content,
+                                                    });
+                                                    setIsAddNoteOpen(true);
+                                                }}
+                                            >
+                                                <i className="bi bi-pencil text-lg"></i>
+                                            </button>
+
                                             <button
                                                 title="Verwijderen"
                                                 onClick={() =>
                                                     setNotes((prev) => prev.filter((n) => n.id !== note.id))
                                                 }
-                                                className="text-red-500 hover:text-red-700"
+                                                className="text-black hover:text-gray-600 transition"
                                             >
-                                                🗑️
+                                                <i className="bi bi-trash text-lg"></i>
                                             </button>
                                         </div>
                                     </div>
+
                                     <div className="p-4 text-sm text-gray-700 leading-relaxed">
                                         {note.content}
                                     </div>
@@ -341,6 +374,7 @@ const PatientsPage: React.FC = () => {
                         )}
                     </div>
                 )}
+
 
 
                 {activeTab === "Medicatie" && (
