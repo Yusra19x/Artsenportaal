@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LabResultChart from "../components/LabResultChart";
+import AddNotePopup from "../components/addnotepopup";
 
 interface Patient {
     id: number;
@@ -27,6 +28,46 @@ const PatientsPage: React.FC = () => {
     const [patient, setPatient] = useState<Patient | null>(null);
     const [activeTab, setActiveTab] = useState("Algemeen");
     const [labResults, setLabResults] = useState<LabResult[]>([]);
+    const [isAddNoteOpen, setIsAddNoteOpen] = useState(false);
+    const [notes, setNotes] = useState([
+        {
+            id: 1,
+            date: "14-09-2025",
+            time: "14:27",
+            specialist: "Dr. de Vries",
+            title: "Bloedonderzoek resultaten besproken",
+            content:
+                "Patiënte reageert goed op huidige medicatie. Vermoeidheid verminderd, maar spierzwakte blijft aanwezig. Overweeg dosisaanpassing bij volgende afspraak.",
+        },
+        {
+            id: 2,
+            date: "01-08-2025",
+            time: "09:15",
+            specialist: "Dr. Janssen",
+            title: "Controle spierkracht en huid",
+            content:
+                "Geen nieuwe klachten gemeld. Spierkracht stabiel, huiduitslag verminderd. Over drie maanden nieuwe controle.",
+        },
+        {
+            id: 3,
+            date: "10-07-2025",
+            time: "16:40",
+            specialist: "Dr. Peeters",
+            title: "Evaluatie bijwerkingen",
+            content:
+                "Lichte misselijkheid na medicatie gemeld. Geen verdere klachten. Aanraden om medicatie na maaltijd in te nemen.",
+        },
+        {
+            id: 4,
+            date: "28-06-2025",
+            time: "13:00",
+            specialist: "Dr. van den Berg",
+            title: "Controle huidontsteking",
+            content:
+                "Huidirritatie zichtbaar verbeterd. Advies om huidige zalf voort te zetten gedurende 2 weken.",
+        },
+    ]);
+
 
     // Eerste useEffect: haalt patiëntgegevens op
     useEffect(() => {
@@ -216,67 +257,91 @@ const PatientsPage: React.FC = () => {
                     </div>
                 )}
                 {activeTab === "Notities" && (
-                        <div>
-                            <div className="flex justify-between items-center mb-4">
-                                <h2 className="text-xl font-semibold text-blue-900">Notities</h2>
-                                <button className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition">
-                                    + Notitie toevoegen
-                                </button>
-                            </div>
-
-                            {/* Notitievoorbeeld */}
-                            <div className="border border-gray-200 rounded-lg mb-6">
-                                <div className="flex justify-between items-center bg-gray-50 border-b px-4 py-2">
-                                    <div className="flex gap-6 text-sm text-gray-700">
-                                        <p><span className="font-medium">Datum:</span> 14-09-2025</p>
-                                        <p><span className="font-medium">Tijd:</span> 14:27</p>
-                                        <p><span className="font-medium">Specialist:</span> Dr. de Vries</p>
-                                        <p><span className="font-medium">Inhoud:</span> Bloedonderzoek resultaten besproken</p>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <button title="Bekijken" className="text-blue-600 hover:text-blue-800">
-                                            👁️
-                                        </button>
-                                        <button title="Verwijderen" className="text-red-500 hover:text-red-700">
-                                            🗑️
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Inhoud notitie */}
-                                <div className="p-4 text-sm text-gray-700 leading-relaxed">
-                                    Patiënte reageert goed op huidige medicatie.
-                                    Vermoeidheid verminderd, maar spierzwakte blijft aanwezig.
-                                    Overweeg dosisaanpassing bij volgende afspraak.
-                                </div>
-                            </div>
-
-                            {/* Tweede dummy-notitie */}
-                            <div className="border border-gray-200 rounded-lg mb-6">
-                                <div className="flex justify-between items-center bg-gray-50 border-b px-4 py-2">
-                                    <div className="flex gap-6 text-sm text-gray-700">
-                                        <p><span className="font-medium">Datum:</span> 01-08-2025</p>
-                                        <p><span className="font-medium">Tijd:</span> 09:15</p>
-                                        <p><span className="font-medium">Specialist:</span> Dr. Janssen</p>
-                                        <p><span className="font-medium">Inhoud:</span> Controle spierkracht en huid</p>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <button title="Bekijken" className="text-blue-600 hover:text-blue-800">
-                                            👁️
-                                        </button>
-                                        <button title="Verwijderen" className="text-red-500 hover:text-red-700">
-                                            🗑️
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className="p-4 text-sm text-gray-700 leading-relaxed">
-                                    Geen nieuwe klachten gemeld. Spierkracht stabiel, huiduitslag verminderd.
-                                    Over drie maanden nieuwe controle.
-                                </div>
-                            </div>
+                    <div>
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-xl font-semibold text-blue-900">Notities</h2>
+                            <button
+                                onClick={() => setIsAddNoteOpen(true)}
+                                className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition"
+                            >
+                                + Notitie toevoegen
+                            </button>
                         </div>
-                    )}
+
+                        {/* Popup */}
+                        <AddNotePopup
+                            isOpen={isAddNoteOpen}
+                            onClose={() => setIsAddNoteOpen(false)}
+                            patientId={String(patient.id)}
+                            patientName={patient.name}
+                            onNoteAdded={(title?: string, content?: string) => {
+                                if (title && content) {
+                                    const newNote = {
+                                        id: notes.length + 1,
+                                        date: new Date().toLocaleDateString("nl-NL"),
+                                        time: new Date().toLocaleTimeString("nl-NL", {
+                                            hour: "2-digit",
+                                            minute: "2-digit",
+                                        }),
+                                        specialist: "Dr. de Vries",
+                                        title,
+                                        content,
+                                    };
+                                    setNotes((prev) => [newNote, ...prev]);
+                                }
+                                setIsAddNoteOpen(false);
+                            }}
+                        />
+
+                        {/* ✅ Lijst van notities */}
+                        {notes.length === 0 ? (
+                            <p className="text-gray-500 italic">Nog geen notities toegevoegd.</p>
+                        ) : (
+                            notes.map((note) => (
+                                <div key={note.id} className="border border-gray-200 rounded-lg mb-6">
+                                    <div className="flex justify-between items-center bg-gray-50 border-b px-4 py-2">
+                                        <div className="flex flex-wrap gap-6 text-sm text-gray-700">
+                                            <p>
+                                                <span className="font-medium">Datum:</span> {note.date}
+                                            </p>
+                                            <p>
+                                                <span className="font-medium">Tijd:</span> {note.time}
+                                            </p>
+                                            <p>
+                                                <span className="font-medium">Specialist:</span>{" "}
+                                                {note.specialist}
+                                            </p>
+                                            <p>
+                                                <span className="font-medium">Inhoud:</span> {note.title}
+                                            </p>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <button
+                                                title="Bekijken"
+                                                className="text-blue-600 hover:text-blue-800"
+                                            >
+                                                👁️
+                                            </button>
+                                            <button
+                                                title="Verwijderen"
+                                                onClick={() =>
+                                                    setNotes((prev) => prev.filter((n) => n.id !== note.id))
+                                                }
+                                                className="text-red-500 hover:text-red-700"
+                                            >
+                                                🗑️
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="p-4 text-sm text-gray-700 leading-relaxed">
+                                        {note.content}
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                )}
+
 
                 {activeTab === "Medicatie" && (
                     <div>
