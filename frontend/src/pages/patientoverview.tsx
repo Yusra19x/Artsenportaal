@@ -74,9 +74,10 @@ const PatientOverview: React.FC = () => {
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    alert(`Instellingen voor ${p.name}`);
+                                    handleOpenPatient(p.id);
                                 }}
                                 className="p-2 rounded-lg hover:bg-gray-100"
+                                title="Bekijk patiënt"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +90,7 @@ const PatientOverview: React.FC = () => {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M6 12h.01M12 12h.01M18 12h.01"
+                                        d="M21 21l-4.35-4.35m2.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z"
                                     />
                                 </svg>
                             </button>

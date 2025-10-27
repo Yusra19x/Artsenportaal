@@ -94,7 +94,7 @@ const PatientsPage: React.FC = () => {
             <div className="p-6 bg-white shadow-sm border-b">
                 <h1 className="text-3xl font-bold text-blue-900">{patient.name}</h1>
                 <p className="text-sm text-gray-600">
-                    Geboortedatum: {patient.birthDate}
+                    Geboortedatum: 27-10-2008
                 </p>
             </div>
 
@@ -132,6 +132,7 @@ const PatientsPage: React.FC = () => {
                                 <p><span className="font-medium text-gray-700">Diagnose:</span> {patient.diagnosis}</p>
                                 <p><span className="font-medium text-gray-700">E-mailadres:</span> emma.thompson@email.com</p>
                                 <p><span className="font-medium text-gray-700">Telefoonnummer:</span> +31 6 9876 5432</p>
+                                <p><span className="font-medium text-gray-700">In behandeling sinds:</span> 18-09-2020</p>
                             </div>
                         </div>
 
@@ -288,6 +289,7 @@ const PatientsPage: React.FC = () => {
                                 <p><span className="font-medium text-gray-700">Medicijn:</span> Prednison</p>
                                 <p><span className="font-medium text-gray-700">Dosering:</span> 10 mg</p>
                                 <p><span className="font-medium text-gray-700">Frequentie:</span> 1x per dag (ochtend)</p>
+                                <p><span className="font-medium text-gray-700">Gebruikt medicatie sinds:</span> 27-10-2020</p>
                             </div>
 
                             <hr className="my-4 border-gray-200" />
@@ -296,6 +298,7 @@ const PatientsPage: React.FC = () => {
                                 <p><span className="font-medium text-gray-700">Medicijn:</span> Methotrexaat</p>
                                 <p><span className="font-medium text-gray-700">Dosering:</span> 15 mg</p>
                                 <p><span className="font-medium text-gray-700">Frequentie:</span> 1x per week</p>
+                                <p><span className="font-medium text-gray-700">Gebruikt medicatie sinds:</span> 27-10-2020</p>
                             </div>
 
                             <hr className="my-4 border-gray-200" />
@@ -304,6 +307,7 @@ const PatientsPage: React.FC = () => {
                                 <p><span className="font-medium text-gray-700">Medicijn:</span> Calcium + Vitamine D</p>
                                 <p><span className="font-medium text-gray-700">Dosering:</span> 500 mg / 400 IU</p>
                                 <p><span className="font-medium text-gray-700">Frequentie:</span> 2x per dag</p>
+                                <p><span className="font-medium text-gray-700">Gebruikt medicatie sinds:</span> 27-10-2020</p>
                             </div>
                         </div>
                     </div>

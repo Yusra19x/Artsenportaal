@@ -1,5 +1,3 @@
-
-
 describe("NotesService", () => {
     // Mock localStorage zodat we lokaal kunnen testen
     beforeEach(() => {
